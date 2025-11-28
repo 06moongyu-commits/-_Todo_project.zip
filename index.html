@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Todo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <h1 class="app-title">Simple Todo</h1>
+      </header>
+
+      <main class="app-main">
+        <section class="todo-form-section">
+          <h2 class="section-title">할 일 추가</h2>
+          <form id="todo-form">
+            <div class="form-row">
+              <label for="title">제목<span class="required">*</span></label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                placeholder="할 일을 입력하세요"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <label for="description">설명</label>
+              <textarea
+                id="description"
+                name="description"
+                rows="2"
+                placeholder="선택 항목입니다"
+              ></textarea>
+            </div>
+            <div class="form-row">
+              <label for="dueDate">마감일</label>
+              <input
+                id="dueDate"
+                name="dueDate"
+                type="datetime-local"
+              />
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn primary">추가</button>
+              <button type="reset" class="btn ghost">초기화</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="controls-section">
+          <div class="filters">
+            <span class="control-label">필터</span>
+            <button data-filter="all" class="chip chip-active">전체</button>
+            <button data-filter="completed" class="chip">완료</button>
+            <button data-filter="incomplete" class="chip">미완료</button>
+          </div>
+
+          <div class="sorts">
+            <span class="control-label">정렬</span>
+            <select id="sort-select">
+              <option value="createdAt-asc">생성일 ↑</option>
+              <option value="createdAt-desc">생성일 ↓</option>
+              <option value="dueDate-asc">마감일 ↑</option>
+              <option value="dueDate-desc">마감일 ↓</option>
+              <option value="title-asc">제목 ㄱ-ㅎ</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="todo-list-section">
+          <h2 class="section-title">할 일 목록</h2>
+          <ul id="todo-list" class="todo-list"></ul>
+          <p id="empty-state" class="empty-state">할 일이 없습니다. 새 할 일을 추가해 보세요.</p>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>LocalStorage 기반 Simple Todo</span>
+      </footer>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+
+
